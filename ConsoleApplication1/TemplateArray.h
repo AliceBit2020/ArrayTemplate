@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 /*код шаблона функции следует помещать в заголовочном файле(*.h).То же относится и к шаблонам
 классов.Весь код шаблона класса(и объявление класса,
 	и реализацию его методов) рекомендуется помещать в
@@ -15,7 +15,7 @@ class Array
 
 	///////int capacity;/////  реальний розмір динам масиву
 public:
-	/*   ДЗ  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	/* 1)  ДЗ  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	* 
 	* 
 	* НЕ КОРИСТУЄМОСЬ КЛАСОМ string  , char* строки  або ваш власний клас My_string
@@ -67,17 +67,22 @@ public:
 			mas = temp;
 		}
 	}
-	void SetPtr(T* ptr,int size)///move
+	void SetPtr(T*& ptr,int& size)///move
 	{
 		delete[] mas;
 		mas = ptr;
 		ptr = nullptr;
 		this->size = size;
+		size = 0;
 
 
 	}
 };
-template<class T>Array<T>::Array()
+
+
+
+
+template<class T>  Array<T>::Array()
 {
 	size = 10;
 	mas = new T[10];          //////                    mas = new Student[10];    =>   должен быть конструктор по умолчанию
@@ -85,10 +90,10 @@ template<class T>Array<T>::Array()
 
 	for (int i = 0; i < size; i++)
 	{
-		mas[i] = rand() % 100 * 1.2;
+		mas[i] = rand() % 100 * 1.2;   ////в типі T  operator = (double d)
 	}
 }
-template<class T>void Array<T>::Output()const
+template<class T> void Array<T>::Output()const
 {
 	for (int i = 0; i < size; i++)
 	{
