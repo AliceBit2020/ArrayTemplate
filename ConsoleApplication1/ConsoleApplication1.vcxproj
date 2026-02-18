@@ -22,6 +22,7 @@
     <ClCompile Include="14.1 Шаблоны классов.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Product.h" />
     <ClInclude Include="TemplateArray.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
